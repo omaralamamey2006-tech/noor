@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Noor 🌙</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('moon.jpg') no-repeat center center/cover;
+}
+
+/* Container */
+.container {
+    position: relative;
+    top: 40%;
+}
+
+/* Buttons */
+button {
+    padding: 15px 25px;
+    margin: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.85);
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: pink;
+}
+
+/* Popup */
+#popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+#popup video {
+    width: 320px;
+    border-radius: 10px;
+}
+
+#popup h3 {
+    margin-bottom: 15px;
+}
+
+/* Roses */
+.rose {
+    position: fixed;
+    top: -10px;
+    font-size: 22px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <button onclick="handleClick()">لو انتي زعلانه اضغطي على هذا الزر</button>
+    <button onclick="handleClick()">لو زعلانه اضغطي على الزر هذا</button>
+</div>
+
+<div id="popup">
+    <h3>مهما يتكلمو عليك ويقولو عليك خليك زي الاسد اللي ف الصورة 🦁</h3>
+    <video controls>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+</div>
+
+<script>
+
+function handleClick() {
+
+    alert("⚠️ لا يمكننا استقبال هذه الضغطة لأن يديك تحتوي على جمال مفرط ✨");
+
+    document.getElementById("popup").style.display = "block";
+
+    startRoses();
+}
+
+function startRoses() {
+    for (let i = 0; i < 40; i++) {
+        let rose = document.createElement("div");
+        rose.innerHTML = "🌹";
+        rose.classList.add("rose");
+        rose.style.left = Math.random() * window.innerWidth + "px";
+        rose.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(rose);
+
+        setTimeout(() => {
+            rose.remove();
+        }, 5000);
+    }
+}
+
+</script>
+
+</body>
+</html>
